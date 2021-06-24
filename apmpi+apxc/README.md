@@ -1,0 +1,1 @@
+This log represents a small example run of the mpi-io-test benchmark, used as part of Darshan regression tests. It was executed on Cori (NERSC) and is notable in that it has AutoPerf APMPI and APXC module data included.
