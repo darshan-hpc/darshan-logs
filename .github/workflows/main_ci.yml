@@ -14,7 +14,7 @@ jobs:
       matrix:
         platform: [ubuntu-latest,
                    macos-latest]
-        python-version: [3.7, 3.8, 3.9]
+        python-version: [3.6, 3.7, 3.8, 3.9]
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
@@ -39,7 +39,7 @@ jobs:
           python -m pip install --upgrade pytest
           # matplotlib is pinned because of
           # gh-479
-          python -m pip install matplotlib==3.4.3
+          python -m pip install 'matplotlib<3.5'
       - if: ${{matrix.platform == 'macos-latest'}}
         name: Install MacOS deps
         run: |
@@ -58,8 +58,7 @@ jobs:
       - name: Install pydarshan
         run: |
           cd scratch/darshan/darshan-util/pydarshan
-          # TODO: use pip per gh-476
-          python setup.py install
+          python -m pip install . --use-feature=in-tree-build
       # shim for importlib.resources on Python < 3.9
       - if: ${{matrix.python-version < 3.9}}
         name: Install importlib_resources
