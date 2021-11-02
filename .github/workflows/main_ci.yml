@@ -58,7 +58,7 @@ jobs:
       - name: Install pydarshan
         run: |
           cd scratch/darshan/darshan-util/pydarshan
-          python -m pip install . --use-feature=in-tree-build
+          python -m pip install .
       # shim for importlib.resources on Python < 3.9
       - if: ${{matrix.python-version < 3.9}}
         name: Install importlib_resources
@@ -72,4 +72,4 @@ jobs:
           # the test suite is sensitive to
           # relative dir for test file paths
           cd scratch/darshan/darshan-util/pydarshan
-          pytest
+          pytest --import-mode=importlib 
