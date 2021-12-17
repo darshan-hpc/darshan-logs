@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if ! command -v wget &> /dev/null
+then
+    echo "Error: this script requires the wget utility."
+    exit
+fi
+
 echo status:
 for LINKFILE in `find . -name "*.link"`; do
     DARSHANFILE=${LINKFILE%.link}
