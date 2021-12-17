@@ -10,3 +10,6 @@ in an externally hosted download site.
 
 You can download all such files at once by running the
 `download-large-logs.sh` script at the top level of this repository.
+This script will also set the correct path/name for each log so that there
+is a corresponding `*.darshan` file alongside each `*.darshan.link` file in
+the repository.
