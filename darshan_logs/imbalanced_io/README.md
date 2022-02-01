@@ -1,1 +1,7 @@
 This example is an anonymized Darshan log that represents a heavily imbalanced I/O workload. In particular, one can observe a balanced I/O workload to file record 15708535418621378501 at the MPI-IO layer, but at the POSIX layer there is a clear imbalance (see SLOWEST_RANK_BYTES and FASTEST_RANK_BYTES counters). The Lustre module stripe info makes clear this issue is due to this file being striped across only a single file server -- in this case MPI-IO picks a single writer process for POSIX I/O, leading to a large imbalance.
+
+This log is also an example of a log file with partial module data. The job
+opened more than 1024 files on rank 0, causing it to run into the default
+limit on the number of file records that Darshan's POSIX module will track
+on each process.  This can be observed by running `darshan-parser` with and
+without the `--show-incomplete` command line option.
