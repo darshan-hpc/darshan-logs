@@ -35,8 +35,10 @@ jobs:
           git checkout pydarshan-devel
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip 
-          python -m pip install --upgrade pytest lxml
+          python -m pip install --upgrade pip
+          # pytest is pinned because of gh-24
+          python -m pip install --upgrade 'pytest==6.2.5'
+          python -m pip install --upgrade lxml
           # matplotlib is pinned because of
           # gh-479
           python -m pip install 'matplotlib<3.5'
