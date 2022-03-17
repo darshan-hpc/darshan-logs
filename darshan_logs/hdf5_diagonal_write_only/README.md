@@ -2,9 +2,10 @@ Set of example darshan logs that contain `H5D` and/or `H5F` module data
 to allow for "ground truth" verification for various data aggregation
 functions in the new Python summary report.
 
-The example application code used to generate these logs along with
-some of the execution details are available here:
-https://github.com/nawtrey/darshan_hdf5_testing
+The logs were generated using the Python `h5py` library with an HDF5
+configuration that was not using MPI-IO. The example application code
+used to generate these logs along with some of the execution details
+are available here: https://github.com/nawtrey/darshan_hdf5_testing
 
 A brief summary of each log's contents:
 
