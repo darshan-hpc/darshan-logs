@@ -26,13 +26,11 @@ jobs:
       - name: Install darshan_logs package
         run: |
           python -m pip install .
-      - name: obtain pydarshan pydarshan-devel branch
+      - name: obtain pydarshan
         run: |
           mkdir scratch
           cd scratch
           git clone https://github.com/darshan-hpc/darshan.git
-          cd darshan
-          git checkout pydarshan-devel
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
