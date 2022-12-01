@@ -66,6 +66,7 @@ jobs:
       - name: Run pytest to check for bad logs
         run: |
           export LD_LIBRARY_PATH=$PWD/scratch/darshan/darshan_install/lib
+          export DYLD_FALLBACK_LIBRARY_PATH=$PWD/scratch/darshan/darshan_install/lib
           # the test suite is sensitive to
           # relative dir for test file paths
           cd scratch/darshan/darshan-util/pydarshan
