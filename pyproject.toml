@@ -6,8 +6,8 @@ requires = [
 
 [project]
 name = "darshan_logs"
-
-requires-python = ">=3.7"
+dynamic = ["version"]
+requires-python = ">=3.6"
 
 [project.urls]
 source = "https://github.com/darshan-hpc/darshan-logs"
