@@ -40,6 +40,7 @@ jobs:
         name: Install MacOS deps
         run: |
           brew install automake
+          brew install libtool
       - name: Install darshan-util
         run: |
           cd scratch/darshan
