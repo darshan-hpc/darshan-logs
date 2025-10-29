@@ -1,9 +1,12 @@
 #!/bin/bash
 
-if ! command -v wget &> /dev/null
-then
-    echo "Error: this script requires the wget utility."
-    exit
+if command -v wget >/dev/null 2>&1; then
+    DOWNLOAD() { wget -nv -O "$1" "$2"; }
+elif command -v curl >/dev/null 2>&1; then
+    DOWNLOAD() { curl -fsSL -o "$1" "$2"; }
+else
+    echo "Error: need either 'wget' or 'curl' installed." >&2
+    exit 1
 fi
 
 echo status:
@@ -14,7 +17,7 @@ for LINKFILE in `find . -name "*.link"`; do
         echo "        - already present, skipping."
     else
         echo "        - not present, downloading..."
-        wget -nv `cat $LINKFILE` -O $DARSHANFILE
+        DOWNLOAD "$DARSHANFILE" `cat $LINKFILE`
     fi
 done
 echo done.
